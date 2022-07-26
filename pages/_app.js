@@ -1,7 +1,16 @@
-import '../styles/globals.css'
+import { wrapper } from "../store";
+import GlobalStyles from "../styles/global";
+import MainLayout from "../components/MainLayout";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+function App({ Component, pageProps }) {
+  return (
+    <>
+      <GlobalStyles />
+      <MainLayout>
+        <Component {...pageProps} />
+      </MainLayout>
+    </>
+  );
 }
 
-export default MyApp
+export default wrapper.withRedux(App);
